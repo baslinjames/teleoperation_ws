@@ -1,0 +1,16 @@
+# Set mode
+uint8 IDLE = 0
+uint8 TRAVEL = 1
+uint8 APPROACH = 2
+uint8 POSITION = 3
+uint8 GENERAL_TRIAGE = 4
+uint8 TEMPERATURE = 5
+uint8 BLOOD_PRESSURE = 6
+uint8 TACTIP = 7
+uint8 INJECTION = 8
+uint8 PIEZO = 9
+
+uint8 mode # Mode to change
+---
+bool success   # Indicate successful run of triggered service
+string message # Informational, e.g. for error messages

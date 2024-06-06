@@ -1,0 +1,756 @@
+<?xml version="1.0" ?>
+<robot name="Dressing_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+    <material name="white">
+        <color rgba="1 1 1 1" />
+    </material>
+
+    <link name="base_link">
+    <!--    <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+        </visual> -->
+    </link>
+    <link name="world" />
+    <joint name="world_to_base_link" type="fixed">
+        <child link="base_link" />
+        <parent link="world" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <!--############################## Right panda arm ########################################-->
+    <link name="right_link0">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link0.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link0.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="right_link1">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link1.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link1.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint1" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="0 0 0" xyz="0 0 0.333" />
+        <parent link="right_link0" />
+        <child link="right_link1" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-2.9671" upper="2.9671" velocity="2.3925" />
+    </joint>
+    <link name="right_link2">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link2.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link2.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint2" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628" />
+        <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0" />
+        <parent link="right_link1" />
+        <child link="right_link2" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-1.8326" upper="1.8326" velocity="2.3925" />
+    </joint>
+    <link name="right_link3">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link3.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint3" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0 -0.316 0" />
+        <parent link="right_link2" />
+        <child link="right_link3" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-2.9671" upper="2.9671" velocity="2.3925" />
+    </joint>
+    <link name="right_link4">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link4.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link4.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint4" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="0.0175" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0.0825 0 0" />
+        <parent link="right_link3" />
+        <child link="right_link4" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-3.1416" upper="0.0873" velocity="2.3925" />
+    </joint>
+    <link name="right_link5">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link5.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link5.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint5" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="-1.5707963267948966 0 0" xyz="-0.0825 0.384 0" />
+        <parent link="right_link4" />
+        <child link="right_link5" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-2.9671" upper="2.9671" velocity="2.8710" />
+    </joint>
+    <link name="right_link6">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link6.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link6.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint6" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0 0 0" />
+        <parent link="right_link5" />
+        <child link="right_link6" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-0.0873" upper="3.8223" velocity="2.8710" />
+    </joint>
+    <link name="right_link7">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link7.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link7.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_joint7" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0.088 0 0" />
+        <parent link="right_link6" />
+        <child link="right_link7" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-2.9671" upper="2.9671" velocity="2.8710" />
+    </joint>
+    <link name="right_link8" />
+    <joint name="right_joint8" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.107" />
+        <parent link="right_link7" />
+        <child link="right_link8" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="right_hand_joint" type="fixed">
+        <parent link="right_link8" />
+        <child link="right_hand" />
+        <origin rpy="0 0 2.35619" xyz="0 0 0" />
+    </joint>
+    <link name="right_hand">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/hand.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/hand.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="right_hand_leftfinger">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="right_hand_rightfinger">
+        <visual>
+            <origin rpy="0 0 3.141592653589793" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 3.141592653589793" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="right_hand_finger_joint1" type="prismatic">
+        <parent link="right_hand" />
+        <child link="right_hand_leftfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+    </joint>
+    <joint name="right_hand_finger_joint2" type="prismatic">
+        <parent link="right_hand" />
+        <child link="right_hand_rightfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 -1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+        <mimic joint="right_hand_finger_joint1" />
+    </joint>
+    <joint name="rightrobo_to_base_link" type="fixed">
+        <parent link="base_link" />
+        <child link="right_link0" />
+        <origin rpy="0 0 1.57" xyz="0 -0.685 0" />
+    </joint>
+
+    <!--############################## Left panda arm ########################################-->
+
+    <link name="left_link0">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link0.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link0.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="left_link1">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link1.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link1.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint1" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="0 0 0" xyz="0 0 0.333" />
+        <parent link="left_link0" />
+        <child link="left_link1" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-2.9671" upper="2.9671" velocity="2.3925" />
+    </joint>
+    <link name="left_link2">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link2.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link2.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint2" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628" />
+        <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0" />
+        <parent link="left_link1" />
+        <child link="left_link2" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-1.8326" upper="1.8326" velocity="2.3925" />
+    </joint>
+    <link name="left_link3">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link3.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link3.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint3" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0 -0.316 0" />
+        <parent link="left_link2" />
+        <child link="left_link3" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-2.9671" upper="2.9671" velocity="2.3925" />
+    </joint>
+    <link name="left_link4">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link4.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link4.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint4" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="0.0175" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0.0825 0 0" />
+        <parent link="left_link3" />
+        <child link="left_link4" />
+        <axis xyz="0 0 1" />
+        <limit effort="87" lower="-3.1416" upper="0.0873" velocity="2.3925" />
+    </joint>
+    <link name="left_link5">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link5.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link5.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint5" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="-1.5707963267948966 0 0" xyz="-0.0825 0.384 0" />
+        <parent link="left_link4" />
+        <child link="left_link5" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-2.9671" upper="2.9671" velocity="2.8710" />
+    </joint>
+    <link name="left_link6">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link6.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link6.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint6" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0 0 0" />
+        <parent link="left_link5" />
+        <child link="left_link6" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-0.0873" upper="3.8223" velocity="2.8710" />
+    </joint>
+    <link name="left_link7">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link7.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/link7.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_joint7" type="revolute">
+        <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973" />
+        <origin rpy="1.5707963267948966 0 0" xyz="0.088 0 0" />
+        <parent link="left_link6" />
+        <child link="left_link7" />
+        <axis xyz="0 0 1" />
+        <limit effort="12" lower="-2.9671" upper="2.9671" velocity="2.8710" />
+    </joint>
+    <link name="left_link8" />
+    <joint name="left_joint8" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.107" />
+        <parent link="left_link7" />
+        <child link="left_link8" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="left_hand_joint" type="fixed">
+        <parent link="left_link8" />
+        <child link="left_hand" />
+        <origin rpy="0 0 2.35619" xyz="0 0 0" />
+    </joint>
+    <link name="left_hand">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/hand.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/hand.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="left_hand_leftfinger">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="left_hand_rightfinger">
+        <visual>
+            <origin rpy="0 0 3.141592653589793" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 3.141592653589793" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="package://robot_config/meshes/finger.dae" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="left_hand_finger_joint1" type="prismatic">
+        <parent link="left_hand" />
+        <child link="left_hand_leftfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+    </joint>
+    <joint name="left_hand_finger_joint2" type="prismatic">
+        <parent link="left_hand" />
+        <child link="left_hand_rightfinger" />
+        <origin rpy="0 0 0" xyz="0 0 0.0584" />
+        <axis xyz="0 -1 0" />
+        <limit effort="20" lower="0.0" upper="0.04" velocity="0.2" />
+        <mimic joint="left_hand_finger_joint1" />
+    </joint>
+    <joint name="leftrobo_to_base_link" type="fixed">
+        <parent link="base_link" />
+        <child link="left_link0" />
+        <origin rpy="0 0 -1.57" xyz="0 0.72 0" />
+    </joint>
+
+    <!--############################## Left controller ########################################-->
+
+    <ros2_control name="left_arm_controller" type="system">
+            <hardware>
+                <plugin>franka_hardware/FrankaHardwareInterface</plugin>
+                <param name="robot_ip">173.16.0.2</param>
+            </hardware>
+            <joint name="left_joint1">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint2">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">-0.785</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint3">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint4">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">-2.356</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint5">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint6">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">1.571</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="left_joint7">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.785</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+        </ros2_control>
+        
+<!--############################## controllers ########################################-->
+        <!-- LEFT HAND -->
+
+    <ros2_control name="left_hand_controller" type="system">
+            <hardware>
+                <plugin>fake_components/GenericSystem</plugin>
+            </hardware>
+            <joint name="left_hand_finger_joint1">
+                <!-- <param name="initial_position">0.0</param> -->
+                <command_interface name="position"/>
+                <state_interface name="position">
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="left_hand_finger_joint2">
+                <param name="mimic">left_hand_finger_joint1</param>
+                <param name="multiplier">1</param>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+        </ros2_control>
+
+    <!--############################## Right controller ########################################-->
+
+        <ros2_control name="right_arm_controller" type="system">
+            <hardware>
+                <plugin>franka_hardware/FrankaHardwareInterface</plugin>
+                <param name="robot_ip">172.16.0.4</param>
+            </hardware>
+            <joint name="right_joint1">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint2">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">-0.785</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint3">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint4">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">-2.356</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint5">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.0</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint6">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">1.571</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            <joint name="right_joint7">
+                <command_interface name="effort"/>
+                <state_interface name="position">
+                  <!-- <param name="initial_value">0.785</param> -->
+                </state_interface>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+        </ros2_control>
+        
+    <!--############################## controllers ########################################-->
+        <!-- right HAND -->
+
+    <ros2_control name="right_hand_controller" type="system">
+            <hardware>
+                <plugin>fake_components/GenericSystem</plugin>
+            </hardware>
+            <joint name="right_hand_finger_joint1">
+                <!-- <param name="initial_position">0.0</param> -->
+                <command_interface name="position"/>
+                <state_interface name="position">
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="right_hand_finger_joint2">
+                <param name="mimic">right_hand_finger_joint1</param>
+                <param name="multiplier">1</param>
+                <command_interface name="position"/>
+                <state_interface name="position">
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+        </ros2_control>
+
+</robot>

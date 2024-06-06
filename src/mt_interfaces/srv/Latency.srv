@@ -1,0 +1,12 @@
+# Service to calculate latency between ROS2 nodes running latency client/services.
+# Request and Response side of the service are the same so equal amount of data is sent in each complete Request/Response message
+# This service works on the assumption that both the Request and Response arrive without garbled data
+
+builtin_interfaces/Time send_stamp    # Timestamp stating when a REQUEST was sent
+builtin_interfaces/Time receive_stamp # NOT USED IN REQUEST! SHOULD EQUAL send_stamp
+
+---
+
+builtin_interfaces/Time send_stamp    # Timestamp stating when a RESPONSE was sent
+builtin_interfaces/Time receive_stamp # Timestamp stating when a REQUEST was received. NOT USED IN REQUEST!
+
