@@ -46,21 +46,21 @@ target_include_directories(Haptic_init PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
 target_link_libraries(Haptic_init
-        /home/meditel/ICRA_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
+        $ENV{HOME}/teleoperation_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
 
 add_executable(Haptic_init2 src/Haptic_init2.cpp)
 target_include_directories(Haptic_init2 PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
 target_link_libraries(Haptic_init2
-        /home/meditel/ICRA_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
+        $ENV{HOME}/teleoperation_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
 
 add_executable(Haptic_init_UGV src/Haptic_init_UGV.cpp)
 target_include_directories(Haptic_init_UGV PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
 target_link_libraries(Haptic_init_UGV
-        /home/meditel/ICRA_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
+        $ENV{HOME}/teleoperation_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
 
 add_executable(left_pos_tracking src/left_pos_tracking.cpp)
 target_include_directories(left_pos_tracking PUBLIC
@@ -139,7 +139,7 @@ target_include_directories(no_haptics PUBLIC
         $<INSTALL_INTERFACE:include>)
         
 target_link_libraries(no_haptics
-        /home/meditel/ICRA_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
+        $ENV{HOME}/teleoperation_ws/src/haptic_connect/include/haptic_connect/libdrd.so.3)
 
 ament_target_dependencies(Haptic_pos rclcpp geometry_msgs std_msgs)
 ament_target_dependencies(Haptic_init rclcpp geometry_msgs std_msgs Eigen3)

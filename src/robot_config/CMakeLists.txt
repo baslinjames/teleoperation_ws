@@ -24,8 +24,6 @@ find_package(ament_cmake REQUIRED)
 install(DIRECTORY
   config
   meshes
-  include
-  src
   DESTINATION share/${PROJECT_NAME}/
 )
 
